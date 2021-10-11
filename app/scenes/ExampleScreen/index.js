@@ -26,31 +26,9 @@ import T from '../../components/atoms/T';
 import colors from '../../themes/colors';
 import fonts from '../../themes/fonts';
 import JobDetails from '../../components/molecules/JobDetails';
-
-/**
- * This is an example of a container component.
- *
- * This screen displays a little help message and informations about a fake user.
- * Feel free to remove it.
- */
-
-const CustomButton = styled.Button`
-  margin-top: 40px;
-`;
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu.',
-  android:
-    'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.'
-});
+import PagerView from 'react-native-pager-view';
 
 class ExampleScreen extends React.Component {
-  // componentDidMount() {
-  //   this.requestFetchUser()();
-  // }
-
-  // requestFetchUser = () => () => {
-  //   this.props.fetchUser();
-  // };
   data = [
     {
       jobId: '5775d8e18a488e6c5bb08333',
@@ -87,42 +65,23 @@ class ExampleScreen extends React.Component {
     return (
       <AppContainer>
         <Header name={'Jim Rose'} />
-        <View style={{ flex: 1, backgroundColor: 'red' }}>
-          {/* <JobDetails item={this.data[0]} /> */}
-          <FlatList
-            data={this.data}
-            style={{ flex: 1 }}
-            keyExtractor={(item, index) => `${index}`}
-            renderItem={({ item }) => <JobDetails item={item} />}
-          />
-        </View>
-
-        {/* <FlatList
-          data={this.data}
-          keyExtractor={(item, index) => `${index}`}
-          renderItem={({ item }) => <JobDetails item={item} />}
-        /> */}
+        <PagerView
+          style={{ height: '100%', width: '100%' }}
+          initialPage={0}
+          orientation="horizontal"
+        >
+          {this.data.map((data, index) => (
+            <JobDetails key={index} item={data} />
+          ))}
+        </PagerView>
       </AppContainer>
     );
   }
 }
 
-ExampleScreen.propTypes = {
-  user: PropTypes.object,
-  userIsLoading: PropTypes.bool,
-  userErrorMessage: PropTypes.string,
-  fetchUser: PropTypes.func
-};
+const mapStateToProps = createStructuredSelector({});
 
-const mapStateToProps = createStructuredSelector({
-  user: selectUser(),
-  userIsLoading: selectUserIsLoading(),
-  userErrorMessage: selectUserErrorMessage()
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchUser: () => dispatch(exampleScreenActions.requestFetchUser())
-});
+const mapDispatchToProps = dispatch => ({});
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 export default compose(withConnect, injectIntl)(ExampleScreen);

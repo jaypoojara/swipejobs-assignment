@@ -16,5 +16,6 @@ export default {
   backGround: '#eeeeee',
   white: '#ffffff',
   banner: '#44d4ab',
-  border_color: '#cdcdcd'
+  border_color: '#cdcdcd',
+  off_white: '#acacac'
 };
