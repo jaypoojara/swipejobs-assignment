@@ -3,8 +3,10 @@
  */
 import logo from 'app/assets/images/logo.png';
 import wednesdayLogo from 'app/assets/images/wednesday-logo.png';
+import swipeLogo from 'app/assets/images/swipejobs_logo.png';
 
 export default {
   logo,
-  wednesdayLogo
+  wednesdayLogo,
+  swipeLogo
 };

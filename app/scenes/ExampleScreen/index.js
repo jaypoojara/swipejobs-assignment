@@ -16,6 +16,7 @@ import {
   selectUserErrorMessage
 } from './selectors';
 import { exampleScreenActions } from './reducer';
+import Header from '../../components/atoms/Header';
 
 /**
  * This is an example of a container component.
@@ -24,7 +25,7 @@ import { exampleScreenActions } from './reducer';
  * Feel free to remove it.
  */
 
-const Container = styled(AppContainer)`
+const StyledContainer = styled(AppContainer)`
   margin: 30px;
   flex: 1;
   justify-content: center;
@@ -40,30 +41,20 @@ const instructions = Platform.select({
 });
 
 class ExampleScreen extends React.Component {
-  componentDidMount() {
-    this.requestFetchUser()();
-  }
+  // componentDidMount() {
+  //   this.requestFetchUser()();
+  // }
 
-  requestFetchUser = () => () => {
-    this.props.fetchUser();
-  };
+  // requestFetchUser = () => () => {
+  //   this.props.fetchUser();
+  // };
 
   render() {
     return (
-      <Container>
-        {this.props.userIsLoading ? (
-          <ActivityIndicator testID="loader" size="large" color="#0000ff" />
-        ) : (
-          <View testID="example-container-content">
-            <SimpsonsLoveWednesday
-              instructions={instructions}
-              userErrorMessage={this.props.userErrorMessage}
-              user={this.props.user}
-            />
-            <CustomButton onPress={this.requestFetchUser()} title="Refresh" />
-          </View>
-        )}
-      </Container>
+      <AppContainer>
+        <Header name={'Jim Rose'} />
+        <StyledContainer></StyledContainer>
+      </AppContainer>
     );
   }
 }
