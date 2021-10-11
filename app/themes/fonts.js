@@ -1,68 +1,31 @@
 import { css } from 'styled-components';
 
 // sizes
-const regular = () => css`
-  font-size: 17px;
-`;
-const small = () => css`
-  font-size: 14px;
-`;
-const big = () => css`
-  font-size: 20px;
-`;
-const large = () => css`
-  font-size: 24px;
-`;
+const size = {
+  small: 10,
+  medium: 12,
+  large: 14,
+  extraLarge: 16,
+  overSize: 20,
+  extraOverSize: 25
+};
 
-// weights
-const light = () => css`
-  font-weight: light;
-`;
-const bold = () => css`
-  font-weight: bold;
-`;
-
-const normal = () => css`
-  font-weight: normal;
-`;
-
-// styles
-const heading = () => css`
-  ${large()};
-  ${bold()}
-`;
-
-const subheading = () => css`
-  ${big()};
-  ${bold()}
-`;
-
-const standard = () => css`
-  ${regular()};
-  ${normal()}
-`;
-
-const subText = () => css`
-  ${small()};
-  ${normal()}
-`;
+const style = {
+  smallBold: {
+    fontSize: size.small,
+    fontWeight: 'bold'
+  },
+  mediumBold: {
+    fontSize: size.small,
+    fontWeight: 'bold'
+  },
+  largeBold: { fontSize: size.large, fontWeight: 'bold' },
+  extraLargeBold: { fontSize: size.extraLarge, fontWeight: 'bold' },
+  overSizeBold: { fontSize: size.extraLarge, fontWeight: 'bold' },
+  extraOverSizeBold: { fontSize: size.extraOverSize, fontWeight: 'bold' }
+};
 
 export default {
-  size: {
-    regular,
-    small,
-    big,
-    large
-  },
-  style: {
-    heading,
-    subheading,
-    standard,
-    subText
-  },
-  weights: {
-    light,
-    bold,
-    normal
-  }
+  size,
+  style
 };

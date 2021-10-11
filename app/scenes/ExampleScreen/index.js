@@ -1,5 +1,11 @@
 import React from 'react';
-import { Platform, View, ActivityIndicator } from 'react-native';
+import {
+  Platform,
+  View,
+  ActivityIndicator,
+  Image,
+  FlatList
+} from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { PropTypes } from 'prop-types';
@@ -8,7 +14,6 @@ import { createStructuredSelector } from 'reselect';
 import { injectIntl } from 'react-intl';
 
 import AppContainer from '@atoms/Container';
-import SimpsonsLoveWednesday from '@organisms/SimpsonsLoveWednesday';
 
 import {
   selectUser,
@@ -17,6 +22,10 @@ import {
 } from './selectors';
 import { exampleScreenActions } from './reducer';
 import Header from '../../components/atoms/Header';
+import T from '../../components/atoms/T';
+import colors from '../../themes/colors';
+import fonts from '../../themes/fonts';
+import JobDetails from '../../components/molecules/JobDetails';
 
 /**
  * This is an example of a container component.
@@ -24,12 +33,6 @@ import Header from '../../components/atoms/Header';
  * This screen displays a little help message and informations about a fake user.
  * Feel free to remove it.
  */
-
-const StyledContainer = styled(AppContainer)`
-  margin: 30px;
-  flex: 1;
-  justify-content: center;
-`;
 
 const CustomButton = styled.Button`
   margin-top: 40px;
@@ -48,12 +51,57 @@ class ExampleScreen extends React.Component {
   // requestFetchUser = () => () => {
   //   this.props.fetchUser();
   // };
+  data = [
+    {
+      jobId: '5775d8e18a488e6c5bb08333',
+      jobTitle: {
+        name: 'Construction General Helper',
+        imageUrl:
+          'https://imgs.swipejobs.com/js/job-category/construction-1.jpg'
+      },
+      company: {
+        name: 'Steve Smith Construction',
+        address: {
+          formattedAddress: '430 Smith St, Chicago, IL 60654, USA',
+          zoneId: 'America/Chicago'
+        },
+        reportTo: {
+          name: 'Judy Smith',
+          phone: '2130010012'
+        }
+      },
+      wagePerHourInCents: 950,
+      milesToTravel: 3.4,
+      shifts: [
+        {
+          startDate: '2019-09-04T21:00:00Z',
+          endDate: '2019-09-05T05:00:00Z'
+        }
+      ],
+      branch: 'Downtown',
+      branchPhoneNumber: '2531233322'
+    }
+  ];
 
   render() {
     return (
       <AppContainer>
         <Header name={'Jim Rose'} />
-        <StyledContainer></StyledContainer>
+        <View style={{ flex: 1, backgroundColor: 'red' }}>
+          {/* <JobDetails item={this.data[0]} /> */}
+          <FlatList
+            data={this.data}
+            style={{ flex: 1 }}
+            keyExtractor={(item, index) => `${index}`}
+            renderItem={({ item }) => <JobDetails item={item} />}
+          />
+        </View>
+
+        {/* <FlatList
+          data={this.data}
+          keyExtractor={(item, index) => `${index}`}
+          renderItem={({ item }) => <JobDetails item={item} />}
+        /> */}
       </AppContainer>
     );
   }
