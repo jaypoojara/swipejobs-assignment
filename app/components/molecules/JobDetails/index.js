@@ -63,7 +63,10 @@ const index = ({ item: jobDetails, acceptRejectJobs }) => {
                     <T
                       key={index}
                       style={styles.slotText}
-                      text={`${getDuration(shift.startDate, shift.endDate)}`}
+                      text={`${getDuration(
+                        shift.startDate,
+                        shift.endDate
+                      ).toUpperCase()}`}
                     />
                   ))}
               </View>

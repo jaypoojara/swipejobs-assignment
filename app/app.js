@@ -8,7 +8,7 @@ import RootScreen from '@scenes/RootScreen';
 import createStore from 'app/rootReducer';
 import { translationMessages } from './i18n';
 import 'react-native-gesture-handler';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context/src/SafeAreaContext';
 
 const { store, persistor } = createStore();
@@ -19,11 +19,14 @@ const App = () => (
       <PersistGate loading={null} persistor={persistor}>
         <PaperProvider>
           <SafeAreaProvider>
-            <StatusBar />
             <RootScreen />
             <FlashMessage
+              position={
+                Platform.OS === 'ios'
+                  ? 'top'
+                  : { top: StatusBar.currentHeight, left: 0, right: 0 }
+              }
               autoHide={true}
-              position="top"
               icon="auto"
               duration={5000}
             />

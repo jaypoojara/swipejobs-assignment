@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import styled from 'styled-components/native';
 import { createStructuredSelector } from 'reselect';
 import { injectIntl } from 'react-intl';
 
@@ -34,7 +33,13 @@ const JobMatchScreen = ({
   return (
     <View style={styles.flex1}>
       <AppContainer>
-        <Header name={`${user.firstName} ${user.lastName}`} />
+        {user && (
+          <Header
+            name={`${user.firstName ? user.firstName : ''} ${
+              user.lastName ? user.lastName : ''
+            }`}
+          />
+        )}
         {jobs.length > 0 && (
           <PagerView
             style={styles.pagerContainer}
@@ -50,8 +55,8 @@ const JobMatchScreen = ({
             ))}
           </PagerView>
         )}
+        <Spinner visible={loading} />
       </AppContainer>
-      <Spinner visible={loading} />
     </View>
   );
 };

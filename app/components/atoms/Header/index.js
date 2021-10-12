@@ -1,23 +1,36 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { Appbar } from 'react-native-paper';
+import { FontAwesome5 } from '@expo/vector-icons';
+import NavigationService from '../../../services/NavigationService';
 import colors from '../../../themes/colors';
 import images from '../../../themes/images';
 import T from '../T';
 
-const Header = ({ name }) => {
+const Header = ({ name, fromProfile = false }) => {
   return (
     <Appbar.Header style={{ backgroundColor: colors.black }}>
-      <View style={styles.headerContainer}>
-        <Image
-          source={images.swipeLogo}
-          resizeMode="contain"
-          style={styles.headerLogo}
-        />
-        <TouchableOpacity>
-          <T style={[styles.titleText]} text={name} />
-        </TouchableOpacity>
-      </View>
+      {fromProfile ? (
+        <View style={styles.profileHeaderContainer}>
+          <TouchableOpacity onPress={() => NavigationService.goBack()}>
+            <FontAwesome5 name="chevron-left" size={24} color="white" />
+          </TouchableOpacity>
+          <T style={[styles.profileTitle]} text={'Jim Rose'} />
+        </View>
+      ) : (
+        <View style={styles.headerContainer}>
+          <Image
+            source={images.swipeLogo}
+            resizeMode="contain"
+            style={styles.headerLogo}
+          />
+          <TouchableOpacity
+            onPress={() => NavigationService.navigate('ProfileScreen')}
+          >
+            {name && <T style={[styles.titleText]} text={name} />}
+          </TouchableOpacity>
+        </View>
+      )}
     </Appbar.Header>
   );
 };
@@ -39,6 +52,19 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: colors.white,
+    fontSize: 20
+  },
+  profileHeaderContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 10
+  },
+  profileTitle: {
+    color: 'white',
+    flex: 1,
+    textAlign: 'center',
+    marginRight: 10,
     fontSize: 20
   }
 });

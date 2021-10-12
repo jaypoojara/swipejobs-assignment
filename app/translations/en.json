@@ -12,5 +12,10 @@
   "requirement": "Requirements",
   "report_to": "Report To",
   "no_thanks": "No Thanks",
-  "take_it": "I'll Take it"
+  "take_it": "I'll Take it",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "address": "Address",
+  "job_distance": "Job Distance",
+  "phone_number": "Phone Number"
 }
