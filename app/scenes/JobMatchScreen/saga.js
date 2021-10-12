@@ -1,5 +1,4 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
-import { get } from 'lodash';
 import {
   getJobs,
   getProfile,

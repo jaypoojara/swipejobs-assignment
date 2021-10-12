@@ -6,10 +6,10 @@ import FlashMessage from 'react-native-flash-message';
 import LanguageProvider from '@atoms/LanguageProvider';
 import RootScreen from '@scenes/RootScreen';
 import createStore from 'app/rootReducer';
-import { translationMessages } from './i18n';
 import 'react-native-gesture-handler';
 import { StatusBar, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context/src/SafeAreaContext';
+import { translationMessages } from './i18n';
 
 const { store, persistor } = createStore();
 
@@ -26,7 +26,7 @@ const App = () => (
                   ? 'top'
                   : { top: StatusBar.currentHeight, left: 0, right: 0 }
               }
-              autoHide={true}
+              autoHide
               icon="auto"
               duration={5000}
             />

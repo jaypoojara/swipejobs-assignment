@@ -1,10 +1,4 @@
 {
-  "love_wednesday": "I love Wednesday and my name is {username}",
-  "live_in_europe": "I live in europe",
-  "dont_live_in_europe": "I don't live in europe",
-  "because": "because",
-  "wednesday_lover": "{username} loves Wednesday",
-  "get_started": "To get started, edit App.js",
   "distance": "Distance",
   "hourly_text": "Hourly Rate",
   "shift_text": "Shift Dates",

@@ -5,7 +5,6 @@ import SplashScreen from '@scenes/SplashScreen';
 import ProfileScreen from '@scenes/ProfileScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import NavigationService from '../services/NavigationService';
-import { SafeAreaView } from 'react-native';
 const Stack = createStackNavigator();
 /**
  * The root screen contains the application's navigation.

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
@@ -8,11 +8,11 @@ import { injectIntl } from 'react-intl';
 import AppContainer from '@atoms/Container';
 import Spinner from 'react-native-loading-spinner-overlay';
 
+import PagerView from 'react-native-pager-view';
 import { selectIsLoading, selectJobs, selectUser } from './selectors';
 import { jobMatchScreenActions } from './reducer';
 import Header from '../../components/atoms/Header';
 import JobDetails from '../../components/molecules/JobDetails';
-import PagerView from 'react-native-pager-view';
 import { WORKER_ID } from '../../utils/constants';
 import styles from './styles';
 
