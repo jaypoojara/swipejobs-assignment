@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import { exampleContainerReducer as example } from '@scenes/ExampleScreen/reducer';
+import { jobMatchScreenContainerReducer as jobMatch } from '@scenes/JobMatchScreen/reducer';
 import configureStore from 'app/utils/createStore';
 import rootSaga from 'app/rootSaga';
 
 export default () => {
   const rootReducer = combineReducers({
-    example
+    jobMatch
   });
 
   return configureStore(rootReducer, rootSaga);

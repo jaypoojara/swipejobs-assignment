@@ -7,7 +7,7 @@ const Container = styled(AppContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${colors.primary};
+  background-color: ${colors.black};
 `;
 
 const Logo = styled.Image`
@@ -15,11 +15,12 @@ const Logo = styled.Image`
   justify-content: center;
   align-items: center;
   width: 200px;
+  tint-color: ${colors.white};
 `;
 
 const SplashScreen = () => (
   <Container testID="splash-screen">
-    <Logo source={images.wednesdayLogo} resizeMode="contain" />
+    <Logo source={images.swipeLogo} resizeMode="contain" />
   </Container>
 );
 
