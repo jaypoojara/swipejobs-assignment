@@ -46,16 +46,17 @@ const JobMatchScreen = ({
             initialPage={0}
             orientation="horizontal"
           >
+            {/* {console.log(jobs)} */}
             {jobs.map((data, index) => (
               <JobDetails
                 acceptRejectJobs={acceptRejectJobs}
-                key={index}
+                key={`${index}`}
                 item={data}
               />
             ))}
           </PagerView>
         )}
-        <Spinner visible={loading} />
+        <Spinner visible={loading} testID="loader" />
       </AppContainer>
     </View>
   );

@@ -1,15 +1,13 @@
 import React from 'react';
 import { View, Image, ScrollView } from 'react-native';
-import {
-  FontAwesome5,
-} from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import colors from '../../../themes/colors';
 import T from '../../atoms/T';
 import ButtonComponent from '../../atoms/Button';
 import { getDuration } from '../../../utils/functionUtils';
 import styles from './styles';
 
-const index = ({ item: jobDetails, acceptRejectJobs }) => (
+const JobDetails = ({ item: jobDetails, acceptRejectJobs }) => (
   <View style={styles.container}>
     <View style={styles.scrollContainerWrapper}>
       <ScrollView style={styles.border}>
@@ -52,7 +50,7 @@ const index = ({ item: jobDetails, acceptRejectJobs }) => (
               {jobDetails.shifts.length > 0 &&
                 jobDetails.shifts.map((shift, index) => (
                   <T
-                    key={index}
+                    key={`${shift.startDate}-${shift.endDate}-${index}`}
                     style={styles.slotText}
                     text={`${getDuration(
                       shift.startDate,
@@ -122,6 +120,7 @@ const index = ({ item: jobDetails, acceptRejectJobs }) => (
       </ScrollView>
       <View style={styles.buttonContainer}>
         <ButtonComponent
+          testID="no-thanks-button"
           mode="outlined"
           color={colors.off_white}
           textColor={colors.off_white}
@@ -140,4 +139,4 @@ const index = ({ item: jobDetails, acceptRejectJobs }) => (
   </View>
 );
 
-export default index;
+export default JobDetails;

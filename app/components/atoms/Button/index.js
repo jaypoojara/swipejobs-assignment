@@ -1,18 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-paper';
+import { StyleSheet } from 'react-native';
+import { Button as ReactNativePaperButton } from 'react-native-paper';
 import colors from '../../../themes/colors';
 import T from '../T';
 
-const index = ({
+const Button = ({
   mode = 'contained',
   color = colors.black,
   textColor = colors.white,
   messageId,
-  onPress
+  onPress,
+  testID
 }) => {
   return (
-    <Button
+    <ReactNativePaperButton
+      testID={testID}
       mode={mode}
       color={color}
       uppercase={false}
@@ -21,11 +23,11 @@ const index = ({
       onPress={onPress}
     >
       <T id={messageId} style={{ color: textColor }} />
-    </Button>
+    </ReactNativePaperButton>
   );
 };
 
-export default index;
+export default Button;
 
 const styles = StyleSheet.create({
   buttonContainer: {
