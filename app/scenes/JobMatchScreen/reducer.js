@@ -69,7 +69,7 @@ export const jobMatchScreenContainerReducer = (state = initialState, action) =>
         return fetchProfile(state, action);
       case jobMatchScreenTypes.PROFILE_SUCCESS:
         return profileSuccess(state, action);
-      case jobMatchScreenTypes.PROFILE_FAIL:
+      case jobMatchScreenTypes.PROFILE_ERROR:
         return profileFail(state, action);
       case jobMatchScreenTypes.SUBMIT_JOB_ERROR:
         return submitJobError(state, action);

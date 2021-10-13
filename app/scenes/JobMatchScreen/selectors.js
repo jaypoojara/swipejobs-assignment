@@ -8,7 +8,7 @@ export const selectJobs = () =>
   createSelector(selectJobMatch, substate => get(substate, 'jobs', []));
 
 export const selectIsLoading = () =>
-  createSelector(selectJobMatch, substate => get(substate, 'loading', null));
+  createSelector(selectJobMatch, substate => get(substate, 'loading', false));
 
 export const selectUserErrorMessage = () =>
   createSelector(selectJobMatch, substate =>

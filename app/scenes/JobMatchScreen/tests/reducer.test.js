@@ -3,6 +3,7 @@ import {
   initialState,
   jobMatchScreenTypes
 } from '../reducer';
+import { fromJS } from 'immutable';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('Tests for reducers used in the JobMatchScreen', () => {
@@ -12,7 +13,7 @@ describe('Tests for reducers used in the JobMatchScreen', () => {
   });
 
   it('should return the initial state of job match reducer', () => {
-    expect(jobMatchScreenContainerReducer(undefined, {})).toEqual(state);
+    expect(jobMatchScreenContainerReducer(state, {})).toEqual(state);
   });
 
   it('should ensure that loading = true when an action of type REQUEST_MATCH_JOBS is dispatched', () => {
@@ -22,10 +23,7 @@ describe('Tests for reducers used in the JobMatchScreen', () => {
       .set('jobs', []);
     expect(
       jobMatchScreenContainerReducer(state, {
-        type: jobMatchScreenTypes.REQUEST_MATCH_JOBS,
-        loading: true,
-        errorMessage: null,
-        jobs: []
+        type: jobMatchScreenTypes.REQUEST_MATCH_JOBS
       })
     ).toEqual(expectedResult);
   });
@@ -59,8 +57,7 @@ describe('Tests for reducers used in the JobMatchScreen', () => {
     const expectedResult = state.set('user', {});
     expect(
       jobMatchScreenContainerReducer(state, {
-        type: jobMatchScreenTypes.REQUEST_PROFILE,
-        user: {}
+        type: jobMatchScreenTypes.REQUEST_PROFILE
       })
     ).toEqual(expectedResult);
   });
@@ -74,14 +71,12 @@ describe('Tests for reducers used in the JobMatchScreen', () => {
     ).toEqual(expectedResult);
   });
   it('should ensure that user is fail when an action of type PROFILE_FAIL is dispatched', () => {
-    const expectedResult = state
-      .set('user', {})
-      .set('errorMessage', 'There was some error');
+    const error = 'something went wrong';
+    const expectedResult = state.set('user', {}).set('errorMessage', error);
     expect(
       jobMatchScreenContainerReducer(state, {
-        type: jobMatchScreenTypes.PROFILE_FAIL,
-        user: {},
-        errorMessage: 'There was some error'
+        type: jobMatchScreenTypes.PROFILE_ERROR,
+        error: error
       })
     ).toEqual(expectedResult);
   });
@@ -89,8 +84,7 @@ describe('Tests for reducers used in the JobMatchScreen', () => {
     const expectedResult = state.set('loading', true);
     expect(
       jobMatchScreenContainerReducer(state, {
-        type: jobMatchScreenTypes.SUBMIT_JOB,
-        loading: true
+        type: jobMatchScreenTypes.SUBMIT_JOB
       })
     ).toEqual(expectedResult);
   });
@@ -98,8 +92,7 @@ describe('Tests for reducers used in the JobMatchScreen', () => {
     const expectedResult = state.set('loading', false);
     expect(
       jobMatchScreenContainerReducer(state, {
-        type: jobMatchScreenTypes.SUBMIT_JOB_SUCCESS,
-        loading: false
+        type: jobMatchScreenTypes.SUBMIT_JOB_SUCCESS
       })
     ).toEqual(expectedResult);
   });
@@ -110,8 +103,7 @@ describe('Tests for reducers used in the JobMatchScreen', () => {
     expect(
       jobMatchScreenContainerReducer(state, {
         type: jobMatchScreenTypes.SUBMIT_JOB_ERROR,
-        loading: false,
-        errorMessage: 'submit error'
+        error: 'submit error'
       })
     ).toEqual(expectedResult);
   });

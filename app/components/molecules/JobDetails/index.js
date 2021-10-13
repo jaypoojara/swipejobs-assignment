@@ -91,7 +91,7 @@ const JobDetails = ({ item: jobDetails, acceptRejectJobs }) => (
                 <T id="requirement" style={styles.detailText} />
                 {jobDetails.requirements.map((requirement, index) => (
                   <T
-                    key={index}
+                    key={`${index}-${requirement}`}
                     style={styles.extraLarge}
                     text={`- ${requirement}`}
                   />
