@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Image, ScrollView } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import PropTypes from 'prop-types';
 import colors from '../../../themes/colors';
 import T from '../../atoms/T';
 import ButtonComponent from '../../atoms/Button';
@@ -138,5 +139,8 @@ const JobDetails = ({ item: jobDetails, acceptRejectJobs }) => (
     </View>
   </View>
 );
-
+JobDetails.propTypes = {
+  item: PropTypes.object,
+  acceptRejectJobs: PropTypes.func
+};
 export default JobDetails;

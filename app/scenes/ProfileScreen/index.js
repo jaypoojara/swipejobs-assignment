@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import PropTypes from 'prop-types';
 import Header from '../../components/atoms/Header';
 import { selectUser } from '../JobMatchScreen/selectors';
 import T from '../../components/atoms/T';
@@ -39,4 +40,9 @@ const ProfileScreen = ({ user }) => (
 const mapStateToProps = createStructuredSelector({
   user: selectUser()
 });
+
+ProfileScreen.propTypes = {
+  user: PropTypes.object
+};
+
 export default connect(mapStateToProps, null)(ProfileScreen);

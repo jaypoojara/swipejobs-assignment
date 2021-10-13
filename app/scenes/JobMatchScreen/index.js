@@ -9,6 +9,7 @@ import AppContainer from '@atoms/Container';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import PagerView from 'react-native-pager-view';
+import PropTypes from 'prop-types';
 import { selectIsLoading, selectJobs, selectUser } from './selectors';
 import { jobMatchScreenActions } from './reducer';
 import Header from '../../components/atoms/Header';
@@ -76,5 +77,14 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
+
+JobMatchScreen.propTypes = {
+  dispatchMatchRequest: PropTypes.func,
+  dispatchAcceptDeclineJob: PropTypes.func,
+  loading: PropTypes.bool,
+  jobs: PropTypes.arrayOf(PropTypes.object),
+  user: PropTypes.object
+};
+
 export default compose(withConnect, injectIntl)(JobMatchScreen);
 export { JobMatchScreen as MatchJobScreenTest };
