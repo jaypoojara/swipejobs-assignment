@@ -1,6 +1,5 @@
 import React from 'react';
 import { renderProvider } from 'app/utils/testUtils';
-import { fireEvent } from '@testing-library/react-native';
 import { ProfileScreenTest } from '../index';
 
 describe('<ProfileScreen /> Container tests', () => {

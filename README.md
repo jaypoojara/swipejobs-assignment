@@ -36,7 +36,7 @@ Atomic design further solidifies the idea of seperating screens into components 
 
 ## Content
 
-The React Native Template contains:
+This contains:
 
 - a [React Native](https://facebook.github.io/react-native/) (v**0.60.6**) application (in "[ejected](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" mode to allow using dependencies that rely on native code)
 - a [clear directory layout](#directory-layout) to provide a base architecture for your application
@@ -47,8 +47,6 @@ The React Native Template contains:
 - [reduxsauce](https://github.com/infinitered/reduxsauce) (v1.0.1) to facilitate using Redux
 - [apisauce](https://github.com/infinitered/apisauce/) to make API calls (v0.19.0)
 - [prettier](https://prettier.io/) and [eslint](https://eslint.org/) preconfigured for React Native
-
-The template includes an example (displaying fake user data) from UI components to the saga. The example is easy to remove so that it doesn't get in the way.
 
 ## Directory layout
 
@@ -78,17 +76,6 @@ You also need to install the dependencies required by React Native:
 - for [iOS development](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies)
 
 
-## Using the template
-
-To create a new project using the template:
-
-- clone this repository
-- remove the previous git history: `yarn initialize`
-- install the npm dependencies by running `yarn`
-- rename the React Native project to your own project name: `yarn run rename -- <YourProjectName>` (the default name is `ReactNativeApplication`)
-- remove the LICENSE file and the "License" section from the README if your project is not open source
-
-
 ### Running expo project
 
 ### Android
@@ -96,16 +83,3 @@ To create a new project using the template:
 
 ### iOS
 - `yarn run ios`
-
- 
-## Useful documentation
-
-### Deployment
-
-- Using [Fastlane](https://fastlane.tools/) to automate builds and store deployments (iOS and Android)
-  - [Distributing beta builds](docs/beta%20builds.md)
-
-### Package dependencies
-
-- You may want to use [CocoaPods](https://cocoapods.org/) to manage your dependencies (iOS only) 
-  - [Using CocoaPods to manage your package dependencies](docs/setup%20cocoapods.md)
