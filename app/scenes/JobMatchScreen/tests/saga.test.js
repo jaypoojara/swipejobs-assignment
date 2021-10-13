@@ -13,7 +13,7 @@ import jobMatchContainerSaga, {
 import { jobMatchScreenTypes } from '../reducer';
 
 describe('Tests for the sagas used in the ExampleScreen', () => {
-  let generator = jobMatchContainerSaga();
+  const generator = jobMatchContainerSaga();
 
   it('should start task to watch for saga actions', () => {
     expect(generator.next().value).toEqual(

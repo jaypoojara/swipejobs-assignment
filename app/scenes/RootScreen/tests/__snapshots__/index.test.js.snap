@@ -205,7 +205,7 @@ exports[`<HomeScreen /> container should render and match the snapshot 1`] = `
                             },
                             Object {
                               "alignItems": "center",
-                              "backgroundColor": "#fcedda",
+                              "backgroundColor": "#000000",
                               "display": "flex",
                               "justifyContent": "center",
                             },
@@ -217,7 +217,7 @@ exports[`<HomeScreen /> container should render and match the snapshot 1`] = `
                           resizeMode="contain"
                           source={
                             Object {
-                              "testUri": "../../../app/assets/images/wednesday-logo.png",
+                              "testUri": "../../../app/assets/images/swipejobs_logo.png",
                             }
                           }
                           style={
@@ -226,6 +226,7 @@ exports[`<HomeScreen /> container should render and match the snapshot 1`] = `
                                 "alignItems": "center",
                                 "display": "flex",
                                 "justifyContent": "center",
+                                "tintColor": "#ffffff",
                                 "width": 200,
                               },
                             ]

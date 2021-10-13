@@ -3,7 +3,6 @@ import {
   initialState,
   jobMatchScreenTypes
 } from '../reducer';
-import { fromJS } from 'immutable';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('Tests for reducers used in the JobMatchScreen', () => {
@@ -76,7 +75,7 @@ describe('Tests for reducers used in the JobMatchScreen', () => {
     expect(
       jobMatchScreenContainerReducer(state, {
         type: jobMatchScreenTypes.PROFILE_ERROR,
-        error: error
+        error
       })
     ).toEqual(expectedResult);
   });

@@ -10,8 +10,8 @@ describe('Tests for selectors to get data from state for the JobMatchScreen', ()
   let mockedState;
   let loading;
   let errorMessage;
-  let jobs = [];
-  let user = {};
+  const jobs = [];
+  const user = {};
 
   beforeEach(() => {
     errorMessage = null;
