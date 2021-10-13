@@ -46,3 +46,4 @@ ProfileScreen.propTypes = {
 };
 
 export default connect(mapStateToProps, null)(ProfileScreen);
+export { ProfileScreen as ProfileScreenTest };
